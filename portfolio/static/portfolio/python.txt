@@ -1,0 +1,118 @@
+python documnetation and commands for installation
+
+python --version 
+
+pip --version
+
+pip install virtulenvwrapper-win
+
+mkvirtualenv test
+
+pip install django
+
+django-admin --version
+
+
+mkdir fodler
+
+cd folder
+
+django-admin startproject projectName
+
+
+get in the directory and run the server
+python manage.py runserver
+
+
+python manage.py help
+
+python manage.py startapp 'App name;
+python manage.py startproject 'Project Name'
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for portfolio 
+
+django-admin startproject portfolio 
+rename it manually from windows 
+
+two apps inside one project 
+python manage.py startapp blog
+python manage.py startapp portfolio
+
+If working in images install Pillow
+pip install Pillow
+
+after chnages in model
+python manage.py makemigrations
+
+python manage.py migrate
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+You could just reset your migrations to before your initial migrate and start over. This doesn't delete data in the database, but rather resets the tracking of your migrations. If all of your databases are already migrated to the same level, then you can start over in your migration tracking.
+
+There is a StackOverflow question here that already addresses it:
+
+How to reset migrations in Django 1.7?
+
+In short,
+
+./manage.py migrate --fake <app-name> zero
+
+This resets the tracking to prior to your initial migration.
+
+And then,
+
+./manage.py makemigrations <app-name>
+./manage.py migrate <app-name>
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+localhost:8000/admin/
+
+for creating admin password and user first run below command
+python manage.py createsuperuser
+usernamr=""
+password=""
+
+for updating password
+python manage.py updatepassword "username" 
+password=""
+
+~~~~~~~~~~~~~~~~~
+
+Main project changes 
+register your models on admin.py 
+admin.site.register(class Name inside the model)
+
+do changes  in settings.py for media root and media url
+also in url.py for making urls for media
+
+import liberaries in below order in urls.py file
+from django.conf import settings
+from django.conf.urls.static import static
+
+and also 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+MEDIA_ROOT and MEDIA_URL should be defined in settings.py file
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+Models:-
+blog.objects.order_by("-date")[:5]
+
+this will sort using date in descending order and 5 blog will show in one page
+
+~~~~~~~~~~~~~~~~
+static files
+
+{% load static %}
+
+{% static 'portfolio/"fileName here" '%}
+
